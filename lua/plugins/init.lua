@@ -67,4 +67,19 @@ return {
     {
         import = "configs.overseer",
     },
+    {
+        "akinsho/toggleterm.nvim",
+        config = function()
+            require("toggleterm").setup({
+                open_mapping = [[<c-\>]],
+                shade_terminals = false,
+                direction = "float",
+                -- add --login so ~/.zprofile is loaded
+                shell = "zsh --login",
+            })
+        end,
+        keys = {
+            { [[<C-\>]] },
+        },
+    },
 }
