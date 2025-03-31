@@ -27,6 +27,8 @@ local options = {
         lua = { "stylua" },
         c = { "clang_format" },
         cpp = { "clang_format" },
+        go = { "gofumpt", "goimports-reviser", "golines" },
+        python = { "isort", "black" },
         -- css = { "prettier" },
         -- html = { "prettier" },
     },
@@ -43,6 +45,20 @@ local options = {
     --     },
     --   },
     -- },
+    formatters = {
+        ["goimports-reviser"] = {
+            prepend_args = { "-rm-unused" },
+        },
+        golines = {
+            prepend_args = { "-max-len=80" },
+        },
+        black = {
+            prepend_args = { "--fast", "--line-length", "80" },
+        },
+        isort = {
+            prepend_args = { "--profile", "black" },
+        },
+    },
     format_on_save = {
         -- These options will be passed to conform.format()
         timeout_ms = 500,

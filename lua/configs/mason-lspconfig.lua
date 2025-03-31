@@ -4,7 +4,6 @@ local lspconfig = package.loaded["lspconfig"]
 local ignore_install = {
     "clangd",
     "pyright",
-    "ruff",
 }
 
 -- Helper function to find if value is in table
