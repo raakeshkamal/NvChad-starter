@@ -12,6 +12,11 @@ lint.linters.luacheck.args = {
     "vim",
 }
 
+lint.linters.mypy.args = {
+    unpack(lint.linters.mypy.args),
+    "--ignore-missing-imports",
+}
+
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
     callback = function()
         lint.try_lint()

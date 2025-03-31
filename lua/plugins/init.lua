@@ -94,4 +94,58 @@ return {
             vim.g.rustfmt_autosave = 1
         end,
     },
+    {
+        "linux-cultist/venv-selector.nvim",
+        dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "mfussenegger/nvim-dap-python" },
+        opts = {
+            -- Your options go here
+            name = { ".venv", "venv" },
+            -- auto_refresh = false
+        },
+        event = "VeryLazy", -- Optional: needed only if you want to type `:VenvSelect` without a keymapping
+        keys = {
+            -- Keymap to open VenvSelector to pick a venv.
+            { "<leader>vs", "<cmd>VenvSelect<cr>" },
+            -- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
+            { "<leader>vc", "<cmd>VenvSelectCached<cr>" },
+        },
+    },
+    {
+        "mfussenegger/nvim-dap",
+        config = function()
+            require("configs.dap")
+        end,
+    },
+    {
+        "nvim-neotest/nvim-nio",
+    },
+
+    {
+        "rcarriga/nvim-dap-ui",
+        dependencies = {
+            "mfussenegger/nvim-dap",
+            "nvim-neotest/nvim-nio",
+        },
+        config = function()
+            require("configs.dap-ui")
+        end,
+    },
+    {
+        "mfussenegger/nvim-dap-python",
+        ft = "python",
+        dependencies = {
+            "mfussenegger/nvim-dap",
+            "rcarriga/nvim-dap-ui",
+        },
+        config = function()
+            require("configs.dap-python")
+        end,
+    },
+    {
+        "jay-babu/mason-nvim-dap.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("configs.mason-dap")
+        end,
+    },
 }
