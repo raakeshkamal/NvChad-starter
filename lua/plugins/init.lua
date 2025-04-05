@@ -156,4 +156,28 @@ return {
             require("configs.persistence")
         end,
     },
+    {
+        "tpope/vim-fugitive",
+        event = "VimEnter",
+        cmd = "G",
+        config = function()
+            require("configs.fugitive")
+        end,
+    },
+    {
+        "mbbill/undotree",
+        event = "VeryLazy",
+    },
+    {
+        "nvim-lua/plenary.nvim",
+    },
+    {
+        "ThePrimeagen/harpoon",
+        event = "VimEnter",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim", "folke/persistence.nvim" },
+        config = function()
+            require("configs.harpoon")
+        end,
+    },
 }

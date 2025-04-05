@@ -8,15 +8,15 @@ require("persistence").setup({
 
 -- require("persistence").load({ last = true })
 
-local map = vim.keymap.set
--- load the session for the current directory
-map("n", "<leader>qs", '<cmd> lua require("persistence").load() <CR>', { desc = "load session" })
-
-map("n", "<leader>qS", '<cmd> lua require("persistence").select() <CR>', { desc = "select session" })
-
-map("n", "<leader>ql", '<cmd> lua require("persistence").load({last = true}) <CR>', { desc = "load last session" })
-
-map("n", "<leader>qd", '<cmd> lua require("persistence").stop() <CR>', { desc = "stop persist" })
+-- local map = vim.keymap.set
+-- -- load the session for the current directory
+-- map("n", "<leader>qs", '<cmd> lua require("persistence").load() <CR>', { desc = "load session" })
+--
+-- map("n", "<leader>qS", '<cmd> lua require("persistence").select() <CR>', { desc = "select session" })
+--
+-- map("n", "<leader>ql", '<cmd> lua require("persistence").load({last = true}) <CR>', { desc = "load last session" })
+--
+-- map("n", "<leader>qd", '<cmd> lua require("persistence").stop() <CR>', { desc = "stop persist" })
 
 -- Create an autocommand group to organize our autocommands
 local vimenter_augroup = vim.api.nvim_create_augroup("VimEnterEvents", { clear = true })
