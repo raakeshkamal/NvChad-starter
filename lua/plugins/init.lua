@@ -100,6 +100,7 @@ return {
         opts = {
             -- Your options go here
             name = { ".venv", "venv" },
+            stay_on_this_version = true,
             -- auto_refresh = false
         },
         event = "VeryLazy", -- Optional: needed only if you want to type `:VenvSelect` without a keymapping
@@ -146,6 +147,13 @@ return {
         event = "VeryLazy",
         config = function()
             require("configs.mason-dap")
+        end,
+    },
+    {
+        "folke/persistence.nvim",
+        event = "VimEnter",
+        config = function()
+            require("configs.persistence")
         end,
     },
 }
