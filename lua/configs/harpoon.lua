@@ -70,7 +70,7 @@ vim.api.nvim_create_autocmd("User", {
             harpoon:list():clear()
             for _, buffer_index in ipairs(vim.api.nvim_list_bufs()) do
                 local buffer_name = vim.api.nvim_buf_get_name(buffer_index)
-                print(buffer_index)
+                -- print(buffer_index)
                 if buffer_name ~= "" and not string.match(buffer_name, "NvimTree") then
                     -- vim.api.nvim_set_current_buf(buffer_index)
                     -- print(buffer_name)
