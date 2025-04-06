@@ -21,6 +21,7 @@ local options = {
         "vim",
         "vimdoc",
         "yaml",
+        "zig",
     },
     highlight = {
         enable = true,

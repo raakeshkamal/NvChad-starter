@@ -8,6 +8,8 @@ lspconfig.servers = {
     "clangd",
     "gopls",
     "pyright",
+    "rust_analyzer",
+    "zls",
 }
 
 local servers = {}
@@ -92,4 +94,12 @@ lspconfig.gopls.setup({
             staticcheck = true,
         },
     },
+})
+
+lspconfig.zls.setup({
+    on_attach = nvlsp.on_attach,
+    capabilities = nvlsp.capabilities,
+    cmd = { "zls" },
+    filetypes = { "zig", "zon" },
+    root_dir = lspconfig.util.root_pattern("zls.json", "build.zig", ".git"),
 })

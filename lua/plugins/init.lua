@@ -208,4 +208,9 @@ return {
             require("configs.harpoon")
         end,
     },
+    {
+        "echasnovski/mini.nvim",
+        event = "VeryLazy",
+        version = "*",
+    },
 }

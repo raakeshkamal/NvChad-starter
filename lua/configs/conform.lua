@@ -29,6 +29,7 @@ local options = {
         cpp = { "clang_format" },
         go = { "gofumpt", "goimports-reviser", "golines" },
         python = { "isort", "black" },
+        zig = { "zig fmt" },
         -- css = { "prettier" },
         -- html = { "prettier" },
     },
