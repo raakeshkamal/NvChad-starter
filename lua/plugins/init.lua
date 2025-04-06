@@ -61,7 +61,7 @@ return {
     },
     {
         "brianhuster/autosave.nvim",
-        event = "BufLeave",
+        event = { "BufUnload", "BufHidden", "BufDelete", "BufWipeout" },
         opts = {},
     },
     {
@@ -167,6 +167,14 @@ return {
         event = "VeryLazy",
         config = function()
             require("configs.mason-dap")
+        end,
+    },
+    {
+        "julianolf/nvim-dap-lldb",
+        event = "VeryLazy",
+        dependencies = { "mfussenegger/nvim-dap" },
+        config = function()
+            require("configs.dap-lldb")
         end,
     },
     {
