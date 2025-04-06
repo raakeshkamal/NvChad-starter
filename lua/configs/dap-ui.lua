@@ -17,3 +17,14 @@ end
 dap.listeners.before.event_exited.dapui_config = function()
     dapui.close()
 end
+
+-- Create an autocommand group to organize our autocommands
+local vimleave_augroup = vim.api.nvim_create_augroup("VimLeaveEvents", { clear = true })
+
+-- Callback for when NvimTree is opened
+vim.api.nvim_create_autocmd("ExitPre", {
+    group = vimleave_augroup,
+    callback = function()
+        dapui.close()
+    end,
+})
