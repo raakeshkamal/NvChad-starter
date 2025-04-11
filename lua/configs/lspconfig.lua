@@ -9,10 +9,11 @@ lspconfig.servers = {
     "gopls",
     "pyright",
     "rust_analyzer",
+    "texlab",
     "zls",
 }
 
-local servers = {}
+local servers = { "texlab" }
 local nvlsp = require("nvchad.configs.lspconfig")
 
 -- lsps with default config

@@ -69,6 +69,7 @@ return {
     },
     {
         "akinsho/toggleterm.nvim",
+        event = "VeryLazy",
         config = function()
             require("toggleterm").setup({
                 open_mapping = [[<c-\>]],
@@ -78,9 +79,6 @@ return {
                 shell = "zsh --login",
             })
         end,
-        keys = {
-            { [[<C-\>]] },
-        },
     },
     {
         "mrcjkb/rustaceanvim",
@@ -124,12 +122,6 @@ return {
             -- auto_refresh = false
         },
         event = "VeryLazy", -- Optional: needed only if you want to type `:VenvSelect` without a keymapping
-        keys = {
-            -- Keymap to open VenvSelector to pick a venv.
-            { "<leader>vs", "<cmd>VenvSelect<cr>" },
-            -- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
-            { "<leader>vc", "<cmd>VenvSelectCached<cr>" },
-        },
     },
     {
         "mfussenegger/nvim-dap",
@@ -139,8 +131,13 @@ return {
     },
     {
         "nvim-neotest/nvim-nio",
+        event = "VeryLazy",
     },
-
+    {
+        "theHamsta/nvim-dap-virtual-text",
+        event = "VeryLazy",
+        opts = {},
+    },
     {
         "rcarriga/nvim-dap-ui",
         dependencies = {
@@ -212,5 +209,29 @@ return {
         "echasnovski/mini.nvim",
         event = "VeryLazy",
         version = "*",
+    },
+    {
+        "lervag/vimtex",
+        event = "VimEnter",
+        lazy = false, -- we don't want to lazy load VimTeX
+        -- tag = "v2.15", -- uncomment to pin to a specific release
+        init = function()
+            -- VimTeX configuration goes here, e.g.
+            vim.g.vimtex_view_method = "skim"
+            vim.g.vimtex_compiler_method = "tectonic"
+        end,
+    },
+    {
+        "supermaven-inc/supermaven-nvim",
+        event = "VeryLazy",
+        config = function()
+            require("supermaven-nvim").setup({
+                keymaps = {
+                    accept_suggestion = "<C-o>",
+                    clear_suggestion = "<C-]>",
+                    accept_word = "<C-j>",
+                },
+            })
+        end,
     },
 }

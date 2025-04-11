@@ -34,6 +34,7 @@ require("nvchad.autocmds")
 require("overseer.tasks")
 
 vim.schedule(function()
+    require("reset_mappings")
     require("mappings")
 end)
 

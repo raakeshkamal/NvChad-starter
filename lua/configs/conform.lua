@@ -1,26 +1,18 @@
-local function diffFormat()
-    local hunks = require("gitsigns").get_hunks()
-    local format = require("conform").format
-    for i = #hunks, 1, -1 do
-        local hunk = hunks[i]
-        if hunk ~= nil and hunk.type ~= "delete" then
-            local start = hunk.added.start
-            local last = start + hunk.added.count
-            -- nvim_buf_get_lines uses zero-based indexing -> subtract from last
-            local last_hunk_line = vim.api.nvim_buf_get_lines(0, last - 2, last - 1, true)[1]
-            local range = { start = { start, 0 }, ["end"] = { last - 1, last_hunk_line:len() } }
-            format({ range = range })
-        end
+
+
+vim.api.nvim_create_user_command("FormatDisable", function(args)
+    if args.bang then
+        -- FomatDisable! will disable autoformatting just for this buffer
+        vim.b.disable_autoformat = true
+    else
+        vim.g.disable_autoformat = true
     end
-end
+end, { desc = "Disable Auto Format on Save" , bang = true })
 
-vim.keymap.set("", "<leader>df", function()
-    diffFormat()
-end, { desc = "Diff Format" })
-
-vim.keymap.set("v", "<leader>fs", function()
-    require("conform").format({ async = true, lsp_fallback = true })
-end, { desc = "Format Selection" })
+vim.api.nvim_create_user_command("FormatEnable", function(args)
+    vim.b.disable_autoformat = false
+    vim.g.disable_autoformat = false
+end, { desc = "Re-Enable Auto Format on Save" })
 
 local options = {
     formatters_by_ft = {
@@ -60,11 +52,14 @@ local options = {
             prepend_args = { "--profile", "black" },
         },
     },
-    format_on_save = {
+    format_on_save = function(bufnr)
+        -- Disable with a global or buffer local variable
+        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+            return
+        end
         -- These options will be passed to conform.format()
-        timeout_ms = 500,
-        lsp_fallback = true,
-    },
+        return{ timeout_ms = 500,lsp_fallback = true}
+    end,
 }
 
 return options
