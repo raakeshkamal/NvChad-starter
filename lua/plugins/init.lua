@@ -221,17 +221,17 @@ return {
             vim.g.vimtex_compiler_method = "tectonic"
         end,
     },
-    {
-        "supermaven-inc/supermaven-nvim",
-        event = "VeryLazy",
-        config = function()
-            require("supermaven-nvim").setup({
-                keymaps = {
-                    accept_suggestion = "<C-o>",
-                    clear_suggestion = "<C-]>",
-                    accept_word = "<C-j>",
-                },
-            })
-        end,
-    },
+    -- {
+    --     "supermaven-inc/supermaven-nvim",
+    --     event = "VeryLazy",
+    --     config = function()
+    --         require("supermaven-nvim").setup({
+    --             keymaps = {
+    --                 accept_suggestion = "<C-o>",
+    --                 clear_suggestion = "<C-]>",
+    --                 accept_word = "<C-j>",
+    --             },
+    --         })
+    --     end,
+    -- },
 }
