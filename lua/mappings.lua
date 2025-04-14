@@ -37,7 +37,8 @@ map("n", ";", ":", "CMD enter command mode")
 -- line action
 map("n", "<C-,>", "^", "move to start of the line")
 map("n", "<C-.>", "$", "move to end of the line")
-
+map("n", "<leader>n", "<cmd>set nu!<CR>", "toggle line number")
+map("n", "<leader>rn", "<cmd>set rnu!<CR>", "toggle relative number")
 -- Comment
 vim.keymap.set("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
 vim.keymap.set("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
@@ -45,6 +46,13 @@ vim.keymap.set("v", "<leader>/", "gc", { desc = "toggle comment", remap = true }
 -- NvimTree
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", "nvimtree toggle")
 
+-- buffer actions
+map("n", "<tab>", "<CMD>bnext<CR>", "Next Buffer")
+map("n", "<S-tab>", "<CMD>bprev<CR>", "Prev Buffer")
+
+map("n", "<leader>x", function()
+    require("nvchad.tabufline").close_buffer()
+end, "buffer close")
 --[[
 ==============================================================================
  _____                          _   _   _
@@ -259,12 +267,12 @@ end,  "Open harpoon window" )
 -- end)
 --
 -- -- Toggle previous & next buffers stored within Harpoon list
-map("n", "<S-tab>", function()
-    harpoon:list():prev()
-end)
-map("n", "<tab>", function()
-    harpoon:list():next()
-end)
+-- map("n", "<S-tab>", function()
+--     harpoon:list():prev()
+-- end)
+-- map("n", "<tab>", function()
+--     harpoon:list():next()
+-- end)
 
 --[[
 ==============================================================================
@@ -305,4 +313,3 @@ map( "n", "<leader>oi", "<cmd>OverseerInfo<cr>",         "Overseer Info" )
 map( "n", "<leader>ob", "<cmd>OverseerBuild<cr>",        "Task builder" )
 map( "n", "<leader>ot", "<cmd>OverseerTaskAction<cr>",   "Task action" )
 map( "n", "<leader>oc", "<cmd>OverseerClearCache<cr>",   "Clear cache" )
-

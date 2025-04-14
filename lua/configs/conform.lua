@@ -1,5 +1,3 @@
-
-
 vim.api.nvim_create_user_command("FormatDisable", function(args)
     if args.bang then
         -- FomatDisable! will disable autoformatting just for this buffer
@@ -7,7 +5,7 @@ vim.api.nvim_create_user_command("FormatDisable", function(args)
     else
         vim.g.disable_autoformat = true
     end
-end, { desc = "Disable Auto Format on Save" , bang = true })
+end, { desc = "Disable Auto Format on Save", bang = true })
 
 vim.api.nvim_create_user_command("FormatEnable", function(args)
     vim.b.disable_autoformat = false
@@ -20,8 +18,9 @@ local options = {
         c = { "clang_format" },
         cpp = { "clang_format" },
         go = { "gofumpt", "goimports-reviser", "golines" },
-        python = { "isort", "black" },
+        python = { "black", "isort" },
         zig = { "zig fmt" },
+        json = { "jq" },
         -- css = { "prettier" },
         -- html = { "prettier" },
     },
@@ -58,7 +57,7 @@ local options = {
             return
         end
         -- These options will be passed to conform.format()
-        return{ timeout_ms = 500,lsp_fallback = true}
+        return { timeout_ms = 500, lsp_fallback = true }
     end,
 }
 
