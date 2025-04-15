@@ -221,6 +221,14 @@ return {
             vim.g.vimtex_compiler_method = "tectonic"
         end,
     },
+    {
+        "radyz/telescope-gitsigns",
+        event = "VeryLazy",
+        dependencies = {
+            "lewis6991/gitsigns.nvim",
+            "nvim-telescope/telescope.nvim",
+        }
+    },
     -- {
     --     "supermaven-inc/supermaven-nvim",
     --     event = "VeryLazy",

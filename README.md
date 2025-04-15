@@ -7,3 +7,8 @@
 # Credits
 
 1) Lazyvim starter https://github.com/LazyVim/starter as nvchad's starter was inspired by Lazyvim's . It made a lot of things easier!
+
+TODO:
+- Harpoon Hot Reload buffer list
+- Dap ui remove expressions
+- Diff Format only diff with mainline

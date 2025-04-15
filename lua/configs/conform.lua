@@ -1,3 +1,5 @@
+local helpers = require("helpers.plugin_helpers")
+
 vim.api.nvim_create_user_command("FormatDisable", function(args)
     if args.bang then
         -- FomatDisable! will disable autoformatting just for this buffer
@@ -54,6 +56,7 @@ local options = {
     format_on_save = function(bufnr)
         -- Disable with a global or buffer local variable
         if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+            helpers.diffFormat()
             return
         end
         -- These options will be passed to conform.format()

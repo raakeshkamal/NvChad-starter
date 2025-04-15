@@ -89,9 +89,10 @@ map("n", "<leader>ma", "<cmd>Telescope marks<CR>", "telescope find marks")
 map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", "telescope find oldfiles")
 map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", "telescope find in current buffer")
 map("n", "<leader>cm", "<cmd>Telescope git_commits<CR>", "telescope git commits")
-map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", "telescope git status")
+map("n", "<leader>gt", "<cmd>Telescope git_signs<CR>", "telescope git status")
 map("n", "<leader>pt", "<cmd>Telescope terms<CR>", "telescope pick hidden term")
 
+map("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<CR>", "telescope lsp symbols")
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", "telescope find files")
 map(
     "n",
