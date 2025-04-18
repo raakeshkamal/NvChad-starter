@@ -12,3 +12,6 @@ TODO:
 - Harpoon Hot Reload buffer list
 - Dap ui remove expressions
 - Diff Format only diff with mainline
+- Better comments highlight
+- Close All tabs and Close other tabs
+- Run to line number

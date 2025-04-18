@@ -1,5 +1,6 @@
 local overseer = require("overseer")
 overseer.setup({
+    strategy = "jobstart",
     templates = { "builtin" },
 })
 
