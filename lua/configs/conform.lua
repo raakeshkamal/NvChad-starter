@@ -26,20 +26,18 @@ local options = {
         -- css = { "prettier" },
         -- html = { "prettier" },
     },
-    -- formatters = {
-    --   ["clang_format"] = {
-    --     prepend_args = {
-    --       "-style={\
-    --               IndentWidth:4,\
-    --               TabWidth:4,\
-    --               UseTab: Never,\
-    --               AccessModifierOffset:0,\
-    --               IndentAccessModifiers:true,\
-    --               PackConstructorInitializers:Never}",
-    --     },
-    --   },
-    -- },
     formatters = {
+        ["clang_format"] = {
+            prepend_args = {
+                "-style={\
+                  IndentWidth: 4,\
+                  TabWidth: 4,\
+                  UseTab: Never,\
+                  AccessModifierOffset: 0,\
+                  IndentAccessModifiers: true,\
+                  PackConstructorInitializers: Never}",
+            },
+        },
         ["goimports-reviser"] = {
             prepend_args = { "-rm-unused" },
         },
