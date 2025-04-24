@@ -227,7 +227,11 @@ return {
         dependencies = {
             "lewis6991/gitsigns.nvim",
             "nvim-telescope/telescope.nvim",
-        }
+        },
+    },
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
     },
     -- {
     --     "supermaven-inc/supermaven-nvim",
