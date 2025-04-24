@@ -233,6 +233,10 @@ return {
         "folke/todo-comments.nvim",
         event = "VeryLazy",
         dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {},
+        config = function()
+            require("configs.todo-comments")
+        end,
     },
     -- {
     --     "supermaven-inc/supermaven-nvim",
