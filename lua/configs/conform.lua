@@ -19,7 +19,7 @@ local options = {
         lua = { "stylua" },
         c = { "clang_format" },
         cpp = { "clang_format" },
-        go = { "gofumpt", "goimports-reviser", "golines" },
+        -- go = { "gofumpt", "goimports-reviser", "golines" }, -- Disabled: Go not installed
         python = { "black", "isort" },
         zig = { "zig fmt" },
         json = { "jq" },
@@ -38,12 +38,12 @@ local options = {
                   PackConstructorInitializers: Never}",
             },
         },
-        ["goimports-reviser"] = {
-            prepend_args = { "-rm-unused" },
-        },
-        golines = {
-            prepend_args = { "-max-len=80" },
-        },
+        -- ["goimports-reviser"] = { -- Disabled: Go not installed
+        --     prepend_args = { "-rm-unused" },
+        -- },
+        -- ["golines"] = { -- Disabled: Go not installed
+        --     prepend_args = { "-max-len=80" },
+        -- },
         black = {
             prepend_args = { "--fast", "--line-length", "80" },
         },

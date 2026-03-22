@@ -1,6 +1,15 @@
-local lspconfig = package.loaded["lspconfig"]
+-- List of servers to install (servers configured in lspconfig.lua)
+local all_servers = {
+    "lua_ls",
+    "gopls",
+    "rust_analyzer",
+    "texlab",
+    "zls",
+    "html",
+    "cssls",
+}
 
--- List of servers to ignore during install
+-- List of servers to ignore during install (already handled by other configs)
 local ignore_install = {
     "clangd",
     "pyright",
@@ -16,14 +25,15 @@ local function table_contains(table, value)
     return false
 end
 
-local all_servers = {}
-for _, s in ipairs(lspconfig.servers) do
+-- Filter out ignored servers
+local filtered_servers = {}
+for _, s in ipairs(all_servers) do
     if not table_contains(ignore_install, s) then
-        table.insert(all_servers, s)
+        table.insert(filtered_servers, s)
     end
 end
 
 require("mason-lspconfig").setup({
-    ensure_installed = all_servers,
+    ensure_installed = filtered_servers,
     automatic_installation = false,
 })
